@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+    },
     messages: [
       {
         timestamp: { type: Date, default: Date.now },
         message: {
           type: String,
-          required: true,
         },
       },
     ],

@@ -21,8 +21,7 @@ exports.postMessage = async (req, res) => {
     user.messages.push({ message });
     await user.save();
     res.status(200).json({
-      userId: user._id,
-      messages: user.messages,
+      message: 'Message sent',
     });
   } catch (err) {
     res.status(500).json({ message: 'Error posting message' });
@@ -31,12 +30,35 @@ exports.postMessage = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   try {
-    const user = new User();
+    const { name } = req.body;
+    if (!name) {
+      return res.status(400).json({ message: 'Please enter a name' });
+    }
+    const user = await User({
+      name,
+    });
     await user.save();
     res.status(200).json({
       message: 'User created',
+      userId: user._id,
     });
   } catch (err) {
     res.status(500).json({ message: 'Error creating user' });
+  }
+};
+
+exports.getUser = async (req, res) => {
+  const { userId } = req.params;
+  if (!userId) {
+    return res.status(400).json({ message: 'Please enter a user id' });
+  }
+  try {
+    const user = await User.findById(userId);
+    res.status(200).json({
+      userId: user._id,
+      name: user.name,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error getting user' });
   }
 };

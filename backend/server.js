@@ -4,11 +4,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const userRoutes = require('./routes/user');
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+}));
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/secret-message', {
   useNewUrlParser: true,
 });
+app.use(express.json());
 mongoose.connection.on('connected', () => {
   console.log('Connected to database secret-message');
 });
