@@ -7,7 +7,6 @@ const App = () => {
   const [userId, setUserId] = useState('');
   //check if user id present in local storage
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
     if (userId) {
       setUserId(userId);
     }
@@ -15,11 +14,11 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {!userId ? (
+        {! userId ? 
           <Route path="/" element={<SignUp />} exact />
-        ) : (
-          <Route path="/" element={<MyMessages />} exact />
-        )}
+         : 
+          <Route path="/" element={<MyMessages />} exact /> 
+        }
 
         <Route path="/sendMessage/:userId" element={<MessageBox />} exact />
 
