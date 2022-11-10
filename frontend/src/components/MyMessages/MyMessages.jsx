@@ -40,7 +40,7 @@ const MyMessages = () => {
 
   return (
     <Card>
-    <div className='w-[90%] m-auto md:w-1/2 mt-4  translate-y-[-200px]  shadow-xl  flex flex-col space-y-4 border-2 px-2  md:px-8 rounded-2xl bg-white p-4'> 
+    <div className='w-[90%] m-auto md:w-1/2 mt-4  translate-y-[-100px]  shadow-xl  flex flex-col space-y-4 border-2 px-2  md:px-8 rounded-2xl bg-white p-4'> 
     <div className='text-2xl font-semibold p-2'>My Messages</div>
       {
         //if userId is not present in local storage then show signup component

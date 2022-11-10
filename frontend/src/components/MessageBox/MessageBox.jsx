@@ -46,7 +46,7 @@ const MessageBox = () => {
     <>
       {!isMessageSent && (
         <Card>
-          <div className='w-[90%] m-auto md:w-1/2 translate-y-[-200px] md:translate-y-[-100px] shadow-2xl   flex flex-col space-y-4 border-2 p-20 px-8 rounded-2xl bg-white '> 
+          <div className='w-[90%] m-auto md:w-1/2 translate-y-[-100px] md:translate-y-[-100px] shadow-2xl   flex flex-col space-y-4 border-2 p-20 px-8 rounded-2xl bg-white '> 
           <h1 className='text-base font-semibold'>Send Messages To {user?.name}</h1>
 
             <input
